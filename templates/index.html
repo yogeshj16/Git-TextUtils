@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Text Utils</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">TextUtils.in</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+
+    </ul>
+  </div>
+    <span class="navbar-text mr-4">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+        </span>
+    <button type="submit" class="btn btn-danger my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#loginModal">Login</button>
+    <button type="submit" class="btn btn-danger my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#signupModal">Signup</button>
+
+</nav>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Welcome to TextUtils!</strong> You can do anything with your text here!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content">
+     <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/handlelogin" method="post">
+                        <div class="form-group">
+                            <label for="lusername">Username</label>
+                            <input type="name" class="form-control" id="lusername" placeholder="Enter your username" name="lusername">
+                        </div>
+                        <div class="form-group">
+                            <label for="lpassword">Password</label>
+                            <input type="password" class="form-control" id="lpassword" placeholder="Enter your password" name="lpassword">
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6Ld3KmQUAAAAAPt71O1D6_qEKvpJF3PQoU9l3CSp"><div style="width: 304px; height: 78px;"><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Ld3KmQUAAAAAPt71O1D6_qEKvpJF3PQoU9l3CSp&amp;co=aHR0cHM6Ly9jb2Rld2l0aGhhcnJ5LmNvbTo0NDM.&amp;hl=en&amp;v=v1548052318968&amp;size=normal&amp;cb=k30kaxkmpv41" width="304" height="78" role="presentation" name="a-glm1btqjln9a" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+                        <button type="submit" class="btn btn-default mt-2" id="loginsubmit">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+     </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container">
+    <form action='/analyze' method='get'>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Enter your text here and let Text Utils do the magic</label>
+        <textarea name='text' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" name="removepunc" class="custom-control-input" id="customSwitch1">
+      <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" name="fullcaps" class="custom-control-input" id="customSwitch2">
+      <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
+    </div>
+
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox"  name="newlineremover" class="custom-control-input" id="customSwitch3">
+      <label class="custom-control-label" for="customSwitch3">New Line Remover</label>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox"  name="extraspaceremover" class="custom-control-input" id="customSwitch4">
+      <label class="custom-control-label" for="customSwitch4">Extra Spaces Remover</label>
+    </div>
+        <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
+    </form>
+    </div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
